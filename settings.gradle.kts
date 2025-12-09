@@ -1,9 +1,10 @@
 rootProject.name = "PadKit"
 
-include(":sample:androidApp")
+// 只包含 lib 模块，sample 模块不需要
+// include(":sample:androidApp")
 include(":lib")
-include(":sample:desktopApp")
-include(":sample:shared")
+// include(":sample:desktopApp")
+// include(":sample:shared")
 
 pluginManagement {
     repositories {

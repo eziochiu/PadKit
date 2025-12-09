@@ -15,8 +15,11 @@ kotlin {
         publishLibraryVariants("release")
     }
 
-    jvm("desktop")
+    // 注释掉 Desktop 目标，arcadebox 只需要 Android
+    // jvm("desktop")
 
+    // 注释掉 iOS 目标，arcadebox 只需要 Android
+    /*
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,6 +30,7 @@ kotlin {
             isStatic = true
         }
     }
+    */
 
     sourceSets {
         commonMain.dependencies {
