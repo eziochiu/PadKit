@@ -52,11 +52,14 @@ internal class AndroidHapticGenerator(applicationContext: Context) : HapticGener
         }
     }
 
+    @Suppress("DEPRECATION")
     private fun buildVibrator(applicationContext: Context): Vibrator {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             applicationContext.getSystemService(VibratorManager::class.java).defaultVibrator
-        } else {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             applicationContext.getSystemService(Vibrator::class.java)
+        } else {
+            applicationContext.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         }
     }
 
