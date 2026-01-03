@@ -15,18 +15,9 @@ kotlin {
         publishLibraryVariants("release")
     }
 
-    jvm("desktop")
-
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "lib"
-            isStatic = true
-        }
-    }
+    // 移除 Desktop 和 iOS 目标，只编译 Android
+    // jvm("desktop")  // 需要 Java 17 toolchain
+    // iosX64(), iosArm64(), iosSimulatorArm64()
 
     sourceSets {
         commonMain.dependencies {
