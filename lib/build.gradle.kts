@@ -47,9 +47,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlin {
-        jvmToolchain(17)
-    }
+    // 不强制指定 jvmToolchain，使用系统默认的 Java (用户使用 Java 21)
+    // kotlin {
+    //     jvmToolchain(17)
+    // }
     buildFeatures {
         compose = true
     }
